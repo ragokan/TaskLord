@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { addTaskFunction, changeTaskCompletedFunction, deleteTaskFunction } from "./functions/TaskFunctions";
 import TaskInterface from "./interfaces/TaskInterface";
 
@@ -12,6 +12,15 @@ const TaskContextProvider = (props: any) => {
       taskIsCompleted: false,
     },
   ]);
+
+  useEffect(() => {
+    const newTasks = localStorage.getItem("alltasks");
+    newTasks && setTasks(JSON.parse(newTasks));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("alltasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (newTask: TaskInterface) => addTaskFunction(setTasks, newTask);
   const changeTask = (taskID: number) => changeTaskCompletedFunction(tasks, setTasks, taskID);
