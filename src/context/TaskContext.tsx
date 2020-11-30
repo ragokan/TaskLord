@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { addTaskFunction, changeTaskCompletedFunction } from "./functions/TaskFunctions";
+import { addTaskFunction, changeTaskCompletedFunction, deleteTaskFunction } from "./functions/TaskFunctions";
 import TaskInterface from "./interfaces/TaskInterface";
 
 export const TaskContext = createContext({});
@@ -15,8 +15,9 @@ const TaskContextProvider = (props: any) => {
 
   const addTask = (newTask: TaskInterface) => addTaskFunction(setTasks, newTask);
   const changeTask = (taskID: number) => changeTaskCompletedFunction(tasks, setTasks, taskID);
+  const deleteTask = (taskID: number) => deleteTaskFunction(setTasks, taskID);
 
-  return <TaskContext.Provider value={{ tasks, addTask, changeTask }}>{props.children}</TaskContext.Provider>;
+  return <TaskContext.Provider value={{ tasks, addTask, changeTask, deleteTask }}>{props.children}</TaskContext.Provider>;
 };
 
 export default TaskContextProvider;

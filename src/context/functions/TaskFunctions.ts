@@ -1,7 +1,7 @@
 import TaskInterface from "../interfaces/TaskInterface";
 
 function addTaskFunction(setTasks: Function, newTask: TaskInterface) {
-  setTasks((prevTasks: []) => [newTask, ...prevTasks]);
+  setTasks((prevTasks: [TaskInterface]) => [newTask, ...prevTasks]);
 }
 
 function changeTaskCompletedFunction(tasks: [TaskInterface], setTasks: Function, taskID: number) {
@@ -11,4 +11,7 @@ function changeTaskCompletedFunction(tasks: [TaskInterface], setTasks: Function,
   setTasks(updatedTask);
 }
 
-export { addTaskFunction, changeTaskCompletedFunction };
+const deleteTaskFunction = (setTasks: Function, taskID: number) =>
+  setTasks((prevTasks: [TaskInterface]) => prevTasks.filter((item: TaskInterface) => item.taskID !== taskID));
+
+export { addTaskFunction, changeTaskCompletedFunction, deleteTaskFunction };
