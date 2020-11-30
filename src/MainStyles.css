@@ -13,3 +13,7 @@
   min-width: 50%;
   align-self: center;
 }
+
+.completed {
+  text-decoration-line: line-through;
+}

@@ -7,8 +7,8 @@ const TaskList: React.FC = () => {
   return (
     <>
       <div className="collection TaskListContainer">
-        {tasks.map((task: {}) => (
-          <TaskItem task={task} />
+        {tasks.map((task: { taskID: number }) => (
+          <TaskItem key={task.taskID} task={task} />
         ))}
       </div>
     </>
