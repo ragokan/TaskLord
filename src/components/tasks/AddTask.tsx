@@ -3,30 +3,25 @@ import TaskInterface from "../../context/interfaces/TaskInterface";
 import { TaskContext } from "../../context/TaskContext";
 
 const AddTask: React.FC = () => {
-  const [task, setTask] = useState<TaskInterface>({
-    taskName: "",
-    taskIsCompleted: false,
-  });
+  const [taskName, setTaskName] = useState("");
   const { addTask }: any = useContext(TaskContext);
 
   const submitTask = () => {
+    const task: TaskInterface = {
+      taskID: Math.floor(Math.random() * 1234567),
+      taskName,
+      taskIsCompleted: false,
+    };
     addTask(task);
-    setTask({ taskIsCompleted: false, taskName: "" });
+    setTaskName("");
   };
 
   return (
     <>
       <div className="row AddTaskContainer">
-        <div className="col s12">
+        <div className="s12 col">
           <div className="input-field col s8">
-            <input
-              id="taskName"
-              type="text"
-              className="validate"
-              value={task.taskName}
-              onChange={(e) => setTask({ taskName: e.target.value, taskIsCompleted: false })}
-              required
-            />
+            <input id="taskName" type="text" className="validate" value={taskName} onChange={(e) => setTaskName(e.target.value)} required />
             <label htmlFor="taskName">Task Name</label>
           </div>
           <div className="input-field col s4">

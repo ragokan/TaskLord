@@ -1,4 +1,5 @@
 interface TaskInterface {
+  taskID: number;
   taskName: string;
   taskIsCompleted: boolean;
 }
