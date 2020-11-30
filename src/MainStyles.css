@@ -1,0 +1,12 @@
+.MainTaskContainer {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.AddTaskContainer {
+  min-width: 50%;
+}
