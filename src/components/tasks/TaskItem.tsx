@@ -6,10 +6,10 @@ const TaskItem: React.FC<any> = ({ task }: any) => {
   return (
     <>
       <li className="collection-item">
-        <a href="#!" className={`tealLink ${task.taskIsCompleted && "completed"}`} onClick={() => changeTask(task.taskID)}>
+        <a href="!#" className={`tealLink ${task.taskIsCompleted && "completed"}`} onClick={() => changeTask(task.taskID)}>
           {task.taskName}
         </a>
-        <a href="#!" className="secondary-content" onClick={() => deleteTask(task.taskID)}>
+        <a href="!#" className="secondary-content" onClick={() => deleteTask(task.taskID)}>
           <i className="material-icons">close</i>
         </a>
       </li>
