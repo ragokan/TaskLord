@@ -17,3 +17,14 @@
 .completed {
   text-decoration-line: line-through;
 }
+
+.tealLink {
+  color: #009688;
+}
+.tealLink:hover {
+  color: #00695c;
+}
+
+.collection-item {
+  list-style: none;
+}
