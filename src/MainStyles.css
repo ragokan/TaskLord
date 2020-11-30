@@ -5,9 +5,11 @@
   place-content: center;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .AddTaskContainer,
 .TaskListContainer {
   min-width: 50%;
+  align-self: center;
 }
